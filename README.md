@@ -28,7 +28,7 @@ Three agents — **Extractor**, **Planner**, **Checker** — coordinated through
 
 ```
 memory.py           # sole database access point
-schema.sql          # memory schema
+schema.py           # memory schema
 agents/
   extractor.py
   planner.py
