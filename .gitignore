@@ -1,0 +1,16 @@
+# Virtual environment -- each teammate creates their own
+.venv/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Local shared-memory database
+*.db
+*.sqlite
+*.sqlite3
+
+# Editor / OS
+.vscode/
+.idea/
+Thumbs.db

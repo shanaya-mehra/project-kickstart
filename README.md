@@ -44,9 +44,9 @@ NOTES.md              # reflection: what worked, what didn't
 
 ## Setup
 
+Requires Python 3.11+ and [Ollama](https://ollama.com/download) installed locally.
+
 ```bash
-python -m venv .venv
-source .venv/bin/activate   # or .venv\Scripts\activate on Windows
 pip install -r requirements.txt
 
 ollama pull llama3.1:8b
