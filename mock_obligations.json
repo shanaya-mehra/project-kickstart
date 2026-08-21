@@ -1,0 +1,26 @@
+[
+  {
+    "id": "OBL-1",
+    "type": "deliverable",
+    "description": "Deliver a final report summarizing findings",
+    "amount": null,
+    "due_date": null,
+    "confidence": "high"
+  },
+  {
+    "id": "OBL-2",
+    "type": "milestone",
+    "description": "Project kickoff meeting with client",
+    "amount": null,
+    "due_date": null,
+    "confidence": "high"
+  },
+  {
+    "id": "OBL-3",
+    "type": "payment",
+    "description": "Client pays $10,000 upon delivery of the final report",
+    "amount": "$10,000",
+    "due_date": null,
+    "confidence": "high"
+  }
+]
