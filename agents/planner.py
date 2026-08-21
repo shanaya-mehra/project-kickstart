@@ -7,9 +7,7 @@ validates that plan with plain code (not the model) per the brief: every
 deliverable covered, every payment scheduled before it, no circular
 dependencies.
 
-No dependency on memory.py, orchestrator.py, or extractor.py — those
-weren't ready, so this is built and tested in isolation. Swap in real
-shared-memory calls later if/when the rest of the pipeline exists.
+Swap in real depednencies and shared-memory calls later when ready.
 
 Run: python agents/planner.py
 """
@@ -24,10 +22,7 @@ MAX_RETRIES = 3
 # Obligation types that MUST be covered by at least one plan item.
 COVERAGE_REQUIRED_TYPES = ("deliverable", "milestone")
 
-
-# ============================================================
 # 1. VALIDATION CHECKS — plain code, not the model, per the brief
-# ============================================================
 
 def check_full_coverage(obligations: list[dict], plan_items: list[dict]) -> list[str]:
     """
@@ -121,10 +116,7 @@ def validate_plan(obligations: list[dict], plan_items: list[dict]) -> dict:
         "cycles": cycles,
     }
 
-
-# ============================================================
 # 2. MODEL CALL — lazy imports, retries with validation feedback
-# ============================================================
 
 def _build_prompt(obligations: list[dict], validation_feedback: dict = None) -> str:
     obligations_json = json.dumps(
@@ -199,9 +191,7 @@ def call_model(obligations: list[dict], validation_feedback: dict = None, model:
     return []
 
 
-# ============================================================
 # 3. ENTRY POINT
-# ============================================================
 
 def _new_id(prefix: str) -> str:
     return f"{prefix}-{uuid.uuid4().hex[:8]}"
@@ -311,6 +301,6 @@ if __name__ == "__main__":
     out_path = save_plan(run_result, out_path="test_plan_output.json")
     print(f"\nStandalone run_planner() test passed. Output written to {out_path}:")
     print(json.dumps(run_result, indent=2))
-    Path(out_path).unlink()
+    #Path(out_path).unlink()
 
     print("\nAll planner smoke tests passed.")
